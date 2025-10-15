@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-
-    public float newX;
-    public float newY;
-
-    public Transform playerTransform;
+    public Transform enemyTransform;
 
     public float speed;
 
@@ -21,12 +17,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        newX = Input.GetAxis("Horizontal");
-        newY = Input.GetAxis("Vertical");
-        Vector3 newMovement = new Vector3(newX, newY, 0);
+        Vector3 newMovement = new Vector3(0, -1, 0);
         newMovement *= speed;
         newMovement *= Time.deltaTime;
-        playerTransform.position += newMovement;
+        enemyTransform.position += newMovement;
         
     }
 }
